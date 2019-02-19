@@ -11,7 +11,7 @@ RUN tar -xvf gowebapp.tar
 RUN mv /tmp/gowebapp/gowebapp/code $GOPATH/src/gowebapp
 
 WORKDIR $GOPATH/src/gowebapp
-RUN ls
+RUN pwd && ls
 RUN go get && go install
 
 FROM golang as runner
