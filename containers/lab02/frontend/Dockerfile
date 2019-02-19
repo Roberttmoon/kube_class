@@ -26,10 +26,6 @@ COPY --from=builder \
         /go/bin/gowebapp
 
 COPY --from=builder \
-        /go/src/gowebapp/config \
-        /tmp/site/config
-
-COPY --from=builder \
         /go/src/gowebapp/static \
         /tmp/site/static
 
