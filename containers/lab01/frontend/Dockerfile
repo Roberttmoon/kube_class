@@ -21,16 +21,15 @@ COPY --from=builder \
 
 COPY --from=builder \
         $GOPATH/src/gowebapp/config/ \
-        /tmp/stie/config/
+        /tmp/site/config
 
 COPY --from=builder \
         $GOPATH/src/gowebapp/static/ \
-        /tmp/stite/static/
+        /tmp/site/static
 
 COPY --from=builder \
         $GOPATH/src/gowebapp/template/ \
-        /tmp/site/template/
+        /tmp/site/template
 
 WORKDIR /tmp/site/
-RUN ls && pwd
 ENTRYPOINT ["/tmp/site/gowebapp"]
