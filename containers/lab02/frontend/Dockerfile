@@ -11,7 +11,7 @@ ADD https://s3-us-west-2.amazonaws.com/heptio-training/k8shandson/files/gowebapp
 RUN tar -xvf gowebapp.tar
 
 # patch database.go with the with updated database for better pass
-RUN rm 
+RUN rm gowebapp/gowebapp/code/vendor/app/shared/database/database.go
 COPY database.go gowebapp/gowebapp/code/vendor/app/shared/database/database.go
 
 RUN mv /tmp/gowebapp/gowebapp/code $GOPATH/src/gowebapp
