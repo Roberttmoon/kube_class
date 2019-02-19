@@ -34,4 +34,4 @@ COPY --from=builder \
 
 WORKDIR /tmp/site/
 RUN pwd && ls
-ENTRYPOINT ["$GOPATH/bin/gowebapp"]
+ENTRYPOINT ["/go/bin/gowebapp"]
