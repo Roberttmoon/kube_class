@@ -3,7 +3,9 @@
 
 if [ "$1" == "delete" ];  then
     docker stop gowebapp-mysql
+    docker rm gowebapp-mysql
     docker stop gowebapp
+    docker rm gowebapp
     exit 0
 fi
 
@@ -15,7 +17,7 @@ docker run \
        --name gowebapp-mysql \
        --hostname gowebapp-mysql \
        -e MYSQL_ROOT_PASSWORD=heptio \
-       -d --rm gowebapp-mysql:v1
+       -d gowebapp-mysql:v1
 cd ..
 
 # build frontend
@@ -26,5 +28,5 @@ docker run \
        --net gowebapp \
        --name gowebapp \
        --hostname gowebapp \
-       -d --rm gowebapp:v1
+       -d gowebapp:v1
 cd ..
