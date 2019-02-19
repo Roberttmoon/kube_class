@@ -1,4 +1,4 @@
-FROM golang
+FROM golang as builder
 LABEL maintainer "education@heptio.com"
 
 EXPOSE 80
