@@ -8,6 +8,7 @@ if [[ -z $db_secret ]]; then
 fi
 
 $db_secret_64=$(echo $db_secret | base64)
+echo $db_secret_64
 
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
