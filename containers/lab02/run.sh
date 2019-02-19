@@ -20,7 +20,7 @@ docker run \
        --hostname gowebapp-mysql \
        -e MYSQL_ROOT_PASSWORD=heptio \
        -d gowebapp-mysql:v1
-cd ../lab02
+cd ../../lab02/
 pwd
 # let mysql start or something
 sleep 10
