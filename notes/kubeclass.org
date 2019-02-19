@@ -1,0 +1,9 @@
+** overview of kube
+- docker
+  - dx container/vm
+  - format of docker image sting
+ 
+** first lab
+   - a notepad application with a frontend writen in goland and a
+     mysql backend
+ 
