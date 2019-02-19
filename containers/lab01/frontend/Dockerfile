@@ -17,15 +17,19 @@ FROM golang as runner
 
 COPY --from=builder \
         /go/bin/gowebapp \
-        /tmp/gowebapp
+        /tmp/site/gowebapp
 
 COPY --from=builder \
         $GOPATH/src/gowebapp/config/ \
-        /tmp/config/
+        /tmp/stie/config/
+
+COPY --from=builder \
+        $GOPATH/src/gowebapp/static/ \
+        /tmp/stite/static/
 
 COPY --from=builder \
         $GOPATH/src/gowebapp/template/ \
-        /tmp/template/
+        /tmp/site/template/
 
-WORKDIR /tmp
-ENTRYPOINT ["/tmp/gowebapp"]
+WORKDIR /tmp/site/
+ENTRYPOINT ["/tmp/site/gowebapp"]
