@@ -32,4 +32,5 @@ COPY --from=builder \
         /tmp/site/template/
 
 WORKDIR /tmp/site/
+RUN ls && pwd
 ENTRYPOINT ["/tmp/site/gowebapp"]
