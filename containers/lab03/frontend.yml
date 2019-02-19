@@ -47,7 +47,7 @@ spec:
                 key: dbpass
           image: localhost:5000/gowebapp:v2
           volumeMounts:
-            - mountPath: "/tmp/site/config/config.json"
+            - mountPath: "/tmp/site/config"
               name: "frontend-config"
           ports:
             - name: webout
