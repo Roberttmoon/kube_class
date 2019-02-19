@@ -16,7 +16,6 @@ docker run \
        --net gowebapp \
        --name gowebapp-mysql \
        --hostname gowebapp-mysql \
-       # yeah I know this is bad
        -e MYSQL_ROOT_PASSWORD=heptio \
        -d gowebapp-mysql:v1
 cd ..
