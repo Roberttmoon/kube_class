@@ -7,7 +7,7 @@ metadata:
     run: gowebapp
     tier: frontend
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 9000
       targetPort: 80
@@ -19,6 +19,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gowebapp
+  # namespace: frontend
   labels:
     run: gowebapp
     tier: frontend
