@@ -17,19 +17,19 @@ RUN go get && go install
 FROM golang as runner
 
 COPY --from=builder \
-        $GOPATH/bin/gowebapp \
-        $GOPATH/bin/gowebapp
+        /go/bin/gowebapp \
+        /go/bin/gowebapp
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/config \
+        /go/src/gowebapp/config \
         /tmp/site/config
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/static \
+        /go/src/gowebapp/static \
         /tmp/site/static
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/template \
+        /go/src/gowebapp/template \
         /tmp/site/template
 
 WORKDIR /tmp/site/
