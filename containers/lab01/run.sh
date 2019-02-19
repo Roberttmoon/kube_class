@@ -33,3 +33,8 @@ docker run \
        --hostname gowebapp \
        -d gowebapp:v1
 cd ..
+
+# todo check if site is up?
+
+docker push localhost:5000/gowebapp:v1
+docker push localhost:5000/gowebapp-mysql:v1
