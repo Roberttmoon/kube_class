@@ -41,7 +41,10 @@ spec:
       - name: gowebapp-mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: heptio
+          valueFrom:
+            secretKeyRef:
+              name: dbpass
+              key: dbpass
         image: localhost:5000/gowebapp-mysql:v1 
         ports:
           - name: dbcoms

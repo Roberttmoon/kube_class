@@ -17,6 +17,8 @@ docker run \
        --name gowebapp-mysql \
        --hostname gowebapp-mysql \
        -e MYSQL_ROOT_PASSWORD=heptio \
+       -t localhost:5000/gowebapp-mysql:v1 \
+       -t gowebapp-mysql:v1 \
        -d gowebapp-mysql:v1
 cd ..
 
@@ -31,6 +33,8 @@ docker run \
        --net gowebapp \
        --name gowebapp \
        --hostname gowebapp \
+       -t localhost:5000/gowebapp:v1 \
+       -t gowebapp:v1 \
        -d gowebapp:v1
 cd ..
 
