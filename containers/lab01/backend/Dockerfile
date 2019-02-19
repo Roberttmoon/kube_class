@@ -8,5 +8,5 @@ LABEL maintainer "education@heptio.com"
 LABEL version="1.0"
 
 copy --from=builder \
-        /tmp/gowebapp/gowebapp/code/ \
+        /tmp/gowebapp/gowebapp-mysql/gowebapp.sql \
         /docker-entrypoint-initdb.d
