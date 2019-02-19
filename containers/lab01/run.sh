@@ -11,14 +11,14 @@ fi
 
 # build backend
 cd backend/
-docker build -t gowebapp-mysql:v1 .
+docker build \
+       -t localhost:5000/gowebapp-mysql:v1 \
+       -t gowebapp-mysql:v1 .
 docker run \
        --net gowebapp \
        --name gowebapp-mysql \
        --hostname gowebapp-mysql \
        -e MYSQL_ROOT_PASSWORD=heptio \
-       -t localhost:5000/gowebapp-mysql:v1 \
-       -t gowebapp-mysql:v1 \
        -d gowebapp-mysql:v1
 cd ..
 
@@ -27,14 +27,14 @@ sleep 10
 
 # build frontend
 cd frontend/
-docker build -t gowebapp:v1 .
+docker build \
+       -t gowebapp:v1 \
+       -t localhost:5000/gowebapp:v1 .
 docker run \
        -p 9000:80 \
        --net gowebapp \
        --name gowebapp \
        --hostname gowebapp \
-       -t localhost:5000/gowebapp:v1 \
-       -t gowebapp:v1 \
        -d gowebapp:v1
 cd ..
 
