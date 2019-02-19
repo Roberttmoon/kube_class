@@ -1,4 +1,4 @@
-FROM golang
+FROM golang as builder
 LABEL maintainer "education@heptio.com"
 
 EXPOSE 80
@@ -12,5 +12,11 @@ RUN mv /tmp/gowebapp/gowebapp/code $GOPATH/src/gowebapp
 
 WORKDIR $GOPATH/src/gowebapp
 RUN go get && go install
+
+
+FROM golang as runner
+
+WORKDIR $GOPATH/bin/
+COPY --from builder /go/bin/gowebapp .
 
 ENTRYPOINT /go/bin/gowebapp
