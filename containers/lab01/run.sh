@@ -20,7 +20,7 @@ cd ..
 
 # build frontend
 cd frontend/
-docker build -t gowebapp:v1
+docker build -t gowebapp:v1 .
 docker run \
        -p 9000:80 \
        --net gowebapp \
