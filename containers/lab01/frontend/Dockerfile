@@ -17,6 +17,6 @@ RUN go get && go install
 FROM golang as runner
 
 WORKDIR $GOPATH/bin/
-COPY --from builder /go/bin/gowebapp .
+COPY --from=builder /go/bin/gowebapp .
 
 ENTRYPOINT /go/bin/gowebapp
