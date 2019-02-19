@@ -21,7 +21,7 @@ COPY --from=builder \
 
 WORKDIR /tmp/config
 COPY --from=builder \
-        /go/src/gowebapp/gowebapp/code/config/config.json \
+        $GOPATH/src/gowebapp/config/config.json \
         /tmp/config/config.json
 
 ENTRYPOINT ["/go/bin/gowebapp"]
