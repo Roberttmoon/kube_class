@@ -11,6 +11,7 @@ RUN tar -xvf gowebapp.tar
 RUN mv /tmp/gowebapp/gowebapp/code $GOPATH/src/gowebapp
 
 WORKDIR $GOPATH/src/gowebapp
+RUN ls
 RUN go get && go install
 
 FROM golang as runner
@@ -20,15 +21,15 @@ COPY --from=builder \
         $GOPATH/bin/gowebapp
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/code/config \
+        $GOPATH/src/gowebapp/config \
         /tmp/site/config
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/code/static \
+        $GOPATH/src/gowebapp/static \
         /tmp/site/static
 
 COPY --from=builder \
-        $GOPATH/src/gowebapp/code/template \
+        $GOPATH/src/gowebapp/template \
         /tmp/site/template
 
 WORKDIR /tmp/site/
