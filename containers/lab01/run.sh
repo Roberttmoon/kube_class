@@ -20,6 +20,9 @@ docker run \
        -d gowebapp-mysql:v1
 cd ..
 
+# let mysql start or something
+sleep 10
+
 # build frontend
 cd frontend/
 docker build -t gowebapp:v1 .
