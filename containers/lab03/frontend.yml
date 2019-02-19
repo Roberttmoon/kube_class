@@ -9,21 +9,23 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    port: 9000
-    targetPort: 80
+    - port: 9000
+      targetPort: 80
   selector:
     run: gowebapp
     tier: frontend
 ---
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 metadata:
   name: gowebapp
   labels:
     run: gowebapp
     tier: frontend
 spec:
-  replica: 2
+  replicas: 2
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       run: gowebapp

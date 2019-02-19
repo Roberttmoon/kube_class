@@ -9,14 +9,14 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 3306
-    targetPort: 3306
+   - port: 3306
+     targetPort: 3306
   selector:
     run: gowebapp-mysql
     tier: backend
 ---
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 metadata: 
   name: gowebapp-mysql
   # namespace: database
@@ -26,7 +26,7 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: recreate
+    type: Recreate
   selector:
     matchLabels:
       run: gowebapp-mysql
