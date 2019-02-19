@@ -9,7 +9,7 @@ fi
 
 $db_secret_64=$(echo $db_secret | base64)
 
-cat <<EOF kubectl apply -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
