@@ -7,7 +7,7 @@ if [[ -z $db_secret ]]; then
     exit 1
 fi
 
-$db_secret_64=$(echo $db_secret | base64)
+$db_secret_64="$(echo $db_secret | base64)"
 echo $db_secret_64
 
 cat <<EOF | kubectl apply -f -
